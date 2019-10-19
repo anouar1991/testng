@@ -16,11 +16,11 @@ export class DataService {
     localStorage.setItem('dataList', JSON.stringify(dataList));
   }
 
-  toDataObject(dataArray){
+  toDataObject(dataArray: object) {
     let dataObjects = [];
-    for (let data in dataArray) {
-      data = dataArray[data];
-      let obj = new Data(data._value, parseInt(data._index));
+    for (let data in dataArray as object) {
+      let datao = dataArray[data];
+      let obj = new Data(datao._value, parseInt(datao._index));
       dataObjects.push(obj);
     }
     return dataObjects;

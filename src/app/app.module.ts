@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { DataRowComponent } from './data-row/data-row.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataListComponent } from './data-list/data-list.component';
-import { DataFormComponent } from './data-form/data-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -14,7 +13,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DataRowComponent,
     DataTableComponent,
     DataListComponent,
-    DataFormComponent
   ],
   imports: [
     BrowserModule,

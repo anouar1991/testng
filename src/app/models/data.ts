@@ -1,17 +1,49 @@
 enum datatypes {
-  String,
-  Int,
-  Boolean
+  String= 'string',
+  Int= 'int',
+  Boolean= 'boolean',
+  Unknown= 'unknown'
 }
 
 export class Data {
+  static estVide(mot) {
+    mot = mot.trim();
+    return !mot.length;
+  }
+
+  static isInt(mot) {
+    return !mot.match(/[\D]/);
+  }
+
+  static isBoolean(mot) {
+    return (mot === 'true' || mot === 'false');
+  }
+
+  static isString(mot) {
+    return !Data.estVide(mot);
+  }
+
+  static isFloat(mot) {
+    return mot.match(/[\d]+[/.]?[\d]*/);
+  }
+
   get type(): datatypes {
-    return this._type;
+    if (Data.isInt(this.value)) {
+      return datatypes.Int;
+    }
+    if (Data.isBoolean(this.value)) {
+      return datatypes.Boolean;
+    }
+    if (Data.isString(this.value)) {
+      return datatypes.String;
+    }
+    return datatypes.Unknown;
   }
 
   set type(value: datatypes) {
     this._type = value;
   }
+
   get index(): number {
     return this._index;
   }
@@ -19,6 +51,7 @@ export class Data {
   set index(value: number) {
     this._index = value;
   }
+
   get value(): string {
     return this._value;
   }
@@ -35,4 +68,5 @@ export class Data {
     this._value = data;
     this._index = index;
   }
+
 }

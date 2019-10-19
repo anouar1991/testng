@@ -6,7 +6,6 @@ import {DataService} from '../services/data.service';
 @Component({
   selector: 'app-data-list',
   templateUrl: './data-list.component.html',
-  styleUrls: ['./data-list.component.css']
 })
 export class DataListComponent implements OnInit {
   dataList: Data[] = [];
@@ -24,9 +23,12 @@ export class DataListComponent implements OnInit {
   }
 
   onSubmit(data): void {
-    this.dataService.setData(new Data(data.data, this.dataList.length + 1));
-    this.dataList = this.dataService.getData();
-    this.dataForm.reset();
+    if (!Data.estVide(data.data)) {
+      this.dataService.setData(new Data(data.data, this.dataList.length + 1));
+      this.dataList = this.dataService.getData();
+      this.dataForm.reset();
+    }
+
   }
 
   ngOnInit() {

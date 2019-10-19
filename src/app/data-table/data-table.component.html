@@ -1,0 +1,18 @@
+<table cellspacing="0" id="contenu">
+  <tbody>
+  <tr>
+    <th>Element Id</th>
+    <th>Element Value</th>
+    <th>Element Type</th>
+  </tr>
+  </tbody>
+  <tr  *ngFor="let data of dataList, let id = index">
+    <td>
+      {{data.index}}
+    </td><td>
+    {{data.value}}
+  </td><td>
+    {{data.type}}
+  </td>
+  </tr>
+</table>

@@ -1,6 +1,13 @@
-<form [formGroup] ="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
   <input name="data" type="text" [formControl]="dataForm.controls['data']">
   <button type="submit">ajouter</button>
 </form>
-
-<app-data-row [data]="data" *ngFor="let data of dataList, let id = index"></app-data-row>
+<div>
+  <h1>Question 1 :</h1>
+  <app-data-row [data]="d" *ngFor="let d of dataList"></app-data-row>
+</div>
+<div>
+  <h1>Question 2 :</h1>
+  <app-data-table [dataList]="dataList">
+  </app-data-table>
+</div>
