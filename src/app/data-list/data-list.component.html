@@ -1,0 +1,6 @@
+<form [formGroup] ="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+  <input name="data" type="text" [formControl]="dataForm.controls['data']">
+  <input type="submit">
+</form>
+
+<app-data-row [data]="data" *ngFor="let data of dataList, let id = index"></app-data-row>
